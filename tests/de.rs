@@ -6,7 +6,7 @@ fn test_de_minimal() {
     let s = include_str!("./minimal.json");
     let package = Package::from_str(s).unwrap();
     assert_eq!(package.name, "my-awesome-package");
-    assert_eq!(package.version, "1.0.0");
+    assert_eq!(package.version, Some("1.0.0".to_string()));
 }
 
 #[test]
@@ -16,7 +16,7 @@ fn test_de_default() {
     let git_url = "https://github.com/<user>/my_package.git";
 
     assert_eq!(package.name, "my_package");
-    assert_eq!(package.version, "1.0.0");
+    assert_eq!(package.version, Some("1.0.0".to_string()));
 
     assert!(package.description.unwrap().is_empty());
     assert_eq!(package.main.unwrap(), "index.js");

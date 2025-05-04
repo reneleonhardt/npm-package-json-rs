@@ -147,7 +147,7 @@ pub struct Package {
     /// The package name.
     pub name: String,
     /// The package version.
-    pub version: String,
+    pub version: Option<String>,
     /// The optional package description.
     pub description: Option<String>,
     /// The optional list of keywords.
